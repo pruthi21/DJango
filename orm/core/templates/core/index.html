@@ -1,0 +1,19 @@
+<h1>Student Table!!!</h1>
+<table>
+    
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>City</th>
+        <th>Age</th>
+    </tr>
+    {% for h in hero %}
+    <tr>
+        <td>{{h.id}}</td>
+        <td>{{h.name}}</td>
+        <td>{{h.city}}</td>
+        <td>{{h.age}}</td>
+    <tr>
+    {% endfor %}
+</table>
+
