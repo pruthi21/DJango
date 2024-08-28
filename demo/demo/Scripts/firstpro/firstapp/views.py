@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from .models import EmpForm, emp,Account, AccountForm
+from .models import EmpForm, Emp,Account, AccountForm
 
 # Create your views here.
 def home(request):
@@ -16,7 +16,7 @@ def add_emp(request):
         return render(request,'addemp.html',context)
 
 def emp_list(request):
-    el=emp.objects.all()
+    el=Emp.objects.all()
     context={'el':el}
     return render(request,'emp_list.html',context)
 
@@ -34,4 +34,10 @@ def acc_list(request):
     al = Account.objects.all()
     context={'al':al}
     return render(request,'acclist.html',context)
+
+def delete_emp(request):
+    eid=request.GET.get('id')
+    emp=Emp.objects.get(id=eid)
+    emp.delete()
+    return redirect('/elist')
     
