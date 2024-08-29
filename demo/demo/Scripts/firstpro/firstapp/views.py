@@ -40,4 +40,21 @@ def delete_emp(request):
     emp=Emp.objects.get(id=eid)
     emp.delete()
     return redirect('/elist')
+
+def delete2_emp(request,eid):#secondmethodof_delete
+    
+    emp=Emp.objects.get(id=eid)
+    emp.delete()
+    return redirect('/elist')
+
+def edit_emp(request,eid):
+    a = Emp.objects.get(id=eid)
+    if request.method=='POST':
+        f=EmpForm(request.POST,instance=a)
+        f.save()
+        return redirect('/')
+    else:
+        f=EmpForm(instance=a)
+        context={'form':f}
+        return render(request,'addemp.html',context)
     
