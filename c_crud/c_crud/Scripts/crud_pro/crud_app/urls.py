@@ -21,4 +21,6 @@ from .import views as v
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',v.home),
+    path('addemp',v.add_emp.as_view()),
+    path('add_in_database',v.create_view.as_view()),
 ]
