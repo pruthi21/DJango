@@ -1,0 +1,28 @@
+{% extends "navbar.html" %}
+{% block body %}
+<h2>Employee List</h2>
+<table class="table ">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Contact</th>
+        <th>Age</th>
+        <th>Address</th>
+        <th colspan="2">Actions</th> 
+    </tr>
+    {% for i in object_list %}
+    <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.name}}</td>
+        <td>{{i.email}}</td>
+        <td>{{i.contact}}</td>
+        <td>{{i.age}}</td>
+        <td>{{i.address}}</td>
+        <td><a href="del1/{{i.id}}">Delete</a></td>
+        <td><a href="del2/{{i.id}}">Delete2</a></td>
+        <td><a href="edit/{{i.id}}">Edit</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

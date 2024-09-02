@@ -23,4 +23,8 @@ urlpatterns = [
     path('',v.home),
     path('addemp',v.add_emp.as_view()),
     path('add_in_database',v.create_view.as_view()),
+    path('elist',v.emp_list.as_view()),
+    path('del1/<int:pk>',v.delete1_view.as_view()),
+    path('del2/<int:pk>',v.delete2_view.as_view()),
+    path('edit/<int:pk>',v.edit_view.as_view()),
 ]
