@@ -1,0 +1,38 @@
+<h1>Message App (using django messages)</h1>
+
+{% if messages %}
+{% for i in messages %}
+<h2 class="{{i.tags}}">{{i}}</h2>
+{% endfor %}
+{% endif %}
+
+<style>
+    .info{
+        color: blue;
+        font-size: larger;
+        font-family: cursive;
+    }
+    .success{
+        color: green;
+        font-size: 30px;
+        font-family: fantasy;
+    }
+    .warning{
+        color:orange;
+        font-size: 22px;
+        font-family: monospace;
+        background-color: grey;
+    }
+    .error{
+        color: red;
+        font-size: 30px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif
+    }
+</style>
+
+<form action="" method="POST">
+    {%csrf_token%}
+    <input type="text" placeholder="Please Enter Username" name="uname"><br>
+    <input type="password" placeholder="Please Enter Password" name="passw"><br>
+    <input type="submit" value="Loign">
+</form>

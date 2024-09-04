@@ -28,4 +28,6 @@ urlpatterns = [
     path('delete',v.delete_emp),
     path('delete2/<int:eid>',v.delete2_emp),
     path('edit/<int:eid>',v.edit_emp),
+    path('msg',v.msg1_data),
+    path('msg2',v.msg2_data),
 ]

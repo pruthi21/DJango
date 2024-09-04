@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from .models import EmpForm, Emp,Account, AccountForm
+from django.contrib import messages as m 
 
 # Create your views here.
 def home(request):
@@ -57,4 +58,41 @@ def edit_emp(request,eid):
         f=EmpForm(instance=a)
         context={'form':f}
         return render(request,'addemp.html',context)
+
+def msg1_data(request):
+    if request.method=='POST':
+        uname=request.POST.get('uname')
+        passw=request.POST.get('passw')
+        if(uname=='pruthikaw' and passw=='pruthikaw21'):
+            lmsg="LOGIN SUCESSFULLY"
+            smsg='Username is: '+uname+' '+'password is: '+passw
+            context={'lmsg':lmsg,'smsg':smsg}
+            return render(request,'msg.html',context)
+        else:
+            emsg='LOGIN ERROR'
+            smsg='Username is :'+uname+' '+'password is: '+passw
+            context={'emsg':emsg,'smsg':smsg}
+            return render(request,'msg.html',context)
+
+    else:
+        context={'fmsg':'This is first msg by using render'}
+        return render(request,'msg.html',context)
     
+def msg2_data(request):
+    if request.method == 'POST':
+        uname = request.POST.get('uname')
+        passw = request.POST.get('passw')
+        if(uname=='yash'and passw=='Yash@1925'):
+            m.success(request,'Login Successfully')
+            m.info(request, 'Username is: '+uname+' and Password is: '+passw)
+            return render(request,'msg2.html')
+        else:
+            m.error(request,'Login Failed')
+            m.info(request, 'Username is: '+uname+' and Password is: '+passw)
+            m.warning(request,'Please Enter Valid Username and Password')
+            return render(request,'msg2.html')
+    else:
+        m.add_message(request,m.INFO,'This is django messages app')
+        m.add_message(request,m.INFO,'Login Form')
+        m.warning(request,'Please Enter Valid Username and Password')
+        return render(request,'msg2.html')
