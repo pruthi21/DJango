@@ -1,0 +1,11 @@
+{% extends 'bookmyevent/base.html' %}
+
+{% block title %}Book Ticket{% endblock %}
+
+{% block content %}
+<h1>Book Ticket for {{ event.title }}</h1>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary">Book Now</button>
+</form>
+{% endblock %}
