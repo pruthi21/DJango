@@ -24,4 +24,5 @@ urlpatterns = [
     path('reg',v.add_user),
     path('login',v.login_view),
     path('logout',v.logout_view),
+    path('pro_list',v.product_list),
 ]

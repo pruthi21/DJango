@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.forms import UserCreationForm
+from .models import Product,Category
 from django.contrib.auth import authenticate,login,logout
 
 # Create your views here.
@@ -35,3 +36,12 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return redirect('/')
+
+def product_list(request):
+
+    pl=Product.objects.all()
+    duplicate_cate=set()
+    for i in pl:
+        duplicate_cate.add(i.name)
+    context={'pl':pl, 'duplicate_cate': duplicate_cate}
+    return render(request,'plist.html',context)
