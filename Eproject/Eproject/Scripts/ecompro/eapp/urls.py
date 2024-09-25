@@ -18,11 +18,14 @@ from django.contrib import admin
 from django.urls import path
 from . import views as v 
 
+app_name = 'eapp'
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',v.home),
-    path('reg',v.add_user),
-    path('login',v.login_view),
-    path('logout',v.logout_view),
-    path('pro_list',v.product_list),
+    path('reg',v.add_user, name='register'),
+    path('login',v.login_view, name= 'login'),
+    path('logout',v.logout_view, name='logout'),
+    path('pro_list',v.product_list, name= 'product'),
+    path('<int:id>/',v.cato_wise_pro,name='cato'),
 ]

@@ -4,6 +4,12 @@
 <div class="container-fluid mt-3">
     <div class="row">
         <div class="col-lg-2 mx-auto">
+            <div class="list-group">
+                {%for i in duplicate_cate%}
+                <a href="{%url 'eapp:cato' i.id%}" class="list-group-item list-group-item-action active">{{i}}</a>
+                {%endfor%}
+
+            </div>
         
         </div>
 
@@ -13,7 +19,10 @@
             {% for i in pl %}
             <div class="col">
                 <div class="card shadow-sm" style="border: 1.5px solid #000000; border-radius: 8px;">
-                    <img src="{{ i.image }}" alt="Please Check Image" width="200px" height="200px">
+                    <div class="text-center p-3">
+                        <img src= "{{ i.image.url }}" alt="Please Check Image" width="200px" height="200px">
+                    </div>
+
                     <div class="card-body">
                         <p class="card-text">{{ i.name }}</p>
                         <p class="card-text">{{ i.description }}</p>

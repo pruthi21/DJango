@@ -45,3 +45,12 @@ def product_list(request):
         duplicate_cate.add(i.name)
     context={'pl':pl, 'duplicate_cate': duplicate_cate}
     return render(request,'plist.html',context)
+
+def cato_wise_pro(request,id):
+    pl=Product.objects.all()
+    duplicate_cate=set()
+    for i in pl:
+        duplicate_cate.add(i.name)
+        pl=Product.objects.filter(name=id)
+    context={'duplicate_cate':duplicate_cate,'pl':pl}
+    return render(request,'plist.html',context)
