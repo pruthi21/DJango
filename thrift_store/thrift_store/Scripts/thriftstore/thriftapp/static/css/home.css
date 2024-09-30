@@ -1,0 +1,72 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Poster Section */
+.poster-section {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.poster {
+    position: relative;
+    width: 30%;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.poster img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.poster:hover img {
+    transform: scale(1.1);
+}
+
+.poster-text {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    color: white;
+    font-size: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Slider Section */
+.slider-section {
+    width: 100%;
+    margin-top: 40px;
+}
+
+.slider {
+    width: 100%;
+    position: relative;
+}
+
+.slider img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}

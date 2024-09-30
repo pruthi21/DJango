@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}  <!-- Load the static template tag library -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}"> <!-- Link to your static CSS file -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"> <!-- Font Awesome for icons -->
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="{% url 'home' %}">Thrift Store</a>
+        </div>
+        <ul class="nav-links">
+            <input type="checkbox" id="checkbox_toggle" />
+            <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+            <div class="menu">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'products' %}">Products</a></li>
+                <li><a href="{% url 'about' %}">About Us</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+                <li><a href="{% url 'cart' %}"><i class="fas fa-shopping-cart"></i></a></li>
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'account' %}"><i class="fas fa-user"></i></a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                <li><a href="{% url 'login' %}"><i class="fas fa-user"></i> Login</a></li>
+                <li><a href="{% url 'signup' %}">Sign Up</a></li>
+                {% endif %}
+            </div>
+        </ul>
+    </nav>
+</body>
+</html>

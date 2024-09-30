@@ -28,4 +28,5 @@ urlpatterns = [
     path('logout',v.logout_view, name='logout'),
     path('pro_list',v.product_list, name= 'product'),
     path('<int:id>/',v.cato_wise_pro,name='cato'),
+    path('addtocart/<int:pid>',v.add_to_cart, name= 'add'),
 ]

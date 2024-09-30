@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home - Thrift Store{% endblock %}
+
+{% block content %}
+    <section class="poster-section">
+        <div class="poster">
+            <img src="{% static 'images/poster1.jpg' %}" alt="Clothing Sale">
+            <div class="poster-text">
+                <h2>Summer Sale</h2>
+                <p>Up to 50% off on all clothing items!</p>
+            </div>
+        </div>
+        <div class="poster">
+            <img src="{% static 'images/poster2.jpg' %}" alt="Vintage Collection">
+            <div class="poster-text">
+                <h2>Vintage Collection</h2>
+                <p>Explore timeless fashion from the past decades.</p>
+            </div>
+        </div>
+        <div class="poster">
+            <img src="{% static 'images/poster3.jpg' %}" alt="New Arrivals">
+            <div class="poster-text">
+                <h1>New Arrivals</h1>
+                <p>Discover the latest thrifted items in our collection.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Optionally, include more content like a slider or product showcase -->
+{% endblock %}
