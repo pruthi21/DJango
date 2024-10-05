@@ -22,7 +22,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Product',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID',default=1)),
                 ('price', models.IntegerField(default=0)),
                 ('discreption', models.TextField(max_length=300)),
                 ('image', models.ImageField(upload_to='image')),

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block head %}
+    <title>Cart List</title>
+    <link rel="stylesheet" href="{% static 'path_to_your_css_file.css' %}">
+{% endblock %}
+</head>
+<body>
+    {% block body %}
+        <hr>
+        <form method="post">
+            {% csrf_token %}
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Username</th>
+                        <th>Sub-Total</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in cl %}
+                    <tr>
+                        <td>{{ item.item.id }}</td>
+                        <td>{{ item.item.product.name }}</td>
+                        <td>{{ item.item.product.price }}</td>
+                        <td>
+                            <input type="number" name="" value="{{ item.item.quantity }}" min="1">
+                        </td>
+                        <td>{{ item.item.user.username }}</td>
+                        <td>{{ item.subtotal }}</td>
+                        <td><a href="{% url 'eapp:delete1' item.item.id %}">Delete</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="total-section">
+                <input type="submit" value="Place Order">
+                <span>Total Bill: {{ total_price }}</span>
+            </div>
+        </form>
+        <hr>
+    {% endblock %}
+</body>
+</html>

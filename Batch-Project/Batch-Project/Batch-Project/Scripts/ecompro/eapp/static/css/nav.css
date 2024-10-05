@@ -1,0 +1,42 @@
+/* Navbar Styling */
+.navbar {
+    background-color: #76c1f7; /* Custom background color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds a slight shadow for depth */
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #0000007c; /* White text for brand */
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
+  }
+  
+  .navbar-brand:hover {
+    color: #f0f0f0; /* Subtle hover effect on brand name */
+  }
+  
+  .nav-link {
+    color: #fff; /* White text for navigation links */
+    padding: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions for hover effects */
+  }
+  
+  .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Adds a slight background on hover */
+    color: #0000009f; /* Lighter text color on hover */
+  }
+  
+  .nav-link.active {
+    background-color: #58a0db; /* Highlight active link */
+    color: #fff;
+    border-radius: 4px;
+  }
+  
+  .navbar-toggler {
+    border: none; /* Remove default border for toggler */
+  }
+  
+  .navbar-toggler-icon {
+    filter: invert(100%); /* Ensures the toggler icon is white */
+  }
+  

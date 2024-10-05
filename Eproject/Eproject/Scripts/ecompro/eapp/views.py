@@ -43,15 +43,32 @@ def product_list(request):
     pl=Product.objects.all()
     duplicate_cate=set()
     for i in pl:
-        duplicate_cate.add(i.name)
-    context={'pl':pl, 'duplicate_cate': duplicate_cate}
-    return render(request,'plist.html',context)
+        duplicate_cate.add(i.category)
+        context={'pl':pl, 'duplicate_cate': duplicate_cate}
+        return render(request,'plist.html',context)
 
 def cato_wise_pro(request,id):
     pl=Product.objects.all()
     duplicate_cate=set()
     for i in pl:
-        duplicate_cate.add(i.name)
-        pl=Product.objects.filter(name=id)
+        duplicate_cate.add(i.category)
+        pl=Product.objects.filter(category=id)
     context={'duplicate_cate':duplicate_cate,'pl':pl}
     return render(request,'plist.html',context)
+
+def add_to_cart(request, pid):
+    product_id=Product.objects.get(id=pid)
+    user_id= request.session.get('uid')
+    user= User.objects.get(id=user_id)
+    c= Cart()
+    c.products=product_id
+    c.user=user
+    c.save()
+    return redirect('/')
+
+def cart_list(request):
+    user_id=request.session.get('uid')
+    user= User.objects.get(id=user_id)
+    cl= Cart.objects.filter(user=user_id)
+    context={'cl':cl}
+    return render(request, 'clist.html', context)
