@@ -1,0 +1,119 @@
+/* Card Container: Controls maximum width and centers content */
+#product .container {
+    max-width: 60%;
+    margin: 0 auto;
+}
+
+/* Card Styling: Creates a modern, professional look */
+.card {
+    text-align: center;
+    border: 1.5px solid #000; 
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition for hover effects */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Enhances depth on hover */
+}
+
+/* Image Styling: Ensures image maintains aspect ratio and is centered */
+.card img {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
+    max-width: 200px;
+    max-height: 200px;
+    object-fit: contain; /* Ensures image fits within the boundaries */
+    transition: transform 0.3s ease-in-out; /* Adds smooth zoom effect on hover */
+}
+
+.card img:hover {
+    transform: scale(1.05); /* Slight zoom-in effect on image hover */
+}
+
+/* Button Group Styling: Adds proper spacing and structure */
+.btn-group .btn {
+    margin-right: 5px;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for button hover */
+}
+
+.btn-group .btn:hover {
+    background-color: black;
+    color: #cc1616;
+}
+
+/* Card Body: Fine-tunes typography for a polished appearance */
+.card-body p {
+    margin-bottom: 12px;
+    font-size: 14px;
+    line-height: 1.6; /* Enhances readability */
+    color: #333; /* Use a professional, subtle color for text */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    #product .container {
+        max-width: 100%;
+    }
+
+    .card img {
+        max-width: 150px;
+    }
+
+    .card {
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+}
+
+/* Fluid Container Styling */
+.container-fluid {
+    padding: 15px;
+}
+
+
+
+
+
+/* Center the categories section */
+#categories {
+    margin-bottom: 20px;
+}
+
+/* Style the category buttons */
+.category-buttons {
+    display: flex;
+    justify-content: center;  /* Centers the buttons horizontally */
+    gap: 15px;  /* Adds space between the category buttons */
+    flex-wrap: wrap; /* Allows buttons to wrap to the next line if there are too many */
+}
+
+/* Category button styles */
+.btn-category {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 2px solid  black; /* Border color */
+    background-color: pink /* Background color */
+    color black /* Text color */
+    transition-background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover */
+}
+
+/* Category button hover effect */
+.btn-category:hover {
+    background-color: black; /* Change background on hover */
+    color: white; /* Change text color on hover */
+}
+
+/* Optional: Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .btn-category {
+        font-size: 14px; /* Slightly smaller font on smaller screens */
+        padding: 8px 16px; /* Adjust padding for smaller screens */
+    }
+}

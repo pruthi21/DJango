@@ -95,3 +95,13 @@ def delete_cart_item(request, cart_id):
     cart_item = Cart.objects.get(id=cart_id, user_id=user_id)
     cart_item.delete()
     return redirect('/clist') 
+
+def product_search(request):
+    srch = request.POST.get('srch')
+    if srch:
+        pl = Product.objects.filter(name__icontains=srch)| Product.objects.filter(description__icontains=srch)
+    else:
+        pl= Product.objects.none()
+
+    context ={'pl': pl}
+    return render(request, 'plist.html', context)

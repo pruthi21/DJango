@@ -28,4 +28,5 @@ urlpatterns = [
     path('addtocart/<int:pid>',v.add_to_cart,name='add'),
     path('clist',v.cart_list,name='clist'),
     path('delete2/<int:cart_id>',v.delete_cart_item, name='delete1'),
+    path('p_search', v.product_search, name='p_search'),
 ]

@@ -18,18 +18,20 @@ from django.contrib import admin
 from django.urls import path
 from django.contrib.auth import views as auth_v
 from . import views as v 
+from .views import products
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',v.home, name= 'home'),
-    path('products/',v.products, name= 'products'),
-    path('about/', v.about, name= 'about'),
-    path('contact/', v.contact, name='contact'),
-    path('cart/', v.cart, name='cart'),
-    path('account/', v.account, name='account'),
-    path('signup/', v.signup, name='signup'),
-    path('login/', auth_v.LoginView.as_view(template_name='login.html'), name='login'),
-    path('logout/', auth_v.LogoutView.as_view(), name='logout'),
+    path('products',v.products, name= 'products'),
+    path('<int:id>',v.add, name='add'),
+    path('about', v.about, name= 'about'),
+    path('contact', v.contact, name='contact'),
+    path('cart', v.cart, name='cart'),
+    path('account', v.account, name='account'),
+    path('signup', v.signup, name='signup'),
+    path('login', auth_v.LoginView.as_view(template_name='login.html'), name='login'),
+    path('logout', auth_v.LogoutView.as_view(), name='logout'),
     
     
 ]
